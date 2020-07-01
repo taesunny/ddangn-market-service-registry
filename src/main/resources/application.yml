@@ -1,0 +1,12 @@
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false # disable to register itself as client
+    fetch-registry: false
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF

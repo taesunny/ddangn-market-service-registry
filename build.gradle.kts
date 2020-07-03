@@ -5,6 +5,8 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
+	java
+	id("com.bmuschko.docker-java-application") version "6.4.0"
 }
 
 group = "com.sunny"
@@ -13,6 +15,14 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
+}
+
+docker {
+	javaApplication {
+		baseImage.set("openjdk:8-alpine")
+		maintainer.set("Taesun Lee 'superbsun@gmail.com'")
+		ports.set(listOf(8761))
+	}
 }
 
 extra["springCloudVersion"] = "Hoxton.SR6"

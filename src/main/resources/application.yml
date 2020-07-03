@@ -10,3 +10,6 @@ logging:
       netflix:
         eureka: OFF
         discovery: OFF
+spring:
+  application:
+    name: service-registry
